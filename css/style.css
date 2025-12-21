@@ -1616,7 +1616,14 @@ select option:checked {
     /* Исправление обрезки текста в FAQ аккордеоне */
     .faq-item.active .faq-answer {
         max-height: none !important;
-    }
+    
+        
+    /* Логотипы партнёров в 2 колонки на мобильных */
+    .partners {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+    }}
 }
+
 
 
