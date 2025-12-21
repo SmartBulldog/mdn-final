@@ -1546,3 +1546,58 @@ table img {
     justify-content: center !important;
   }
 }
+
+/* ===================================================================
+   УЛУЧШЕННЫЕ СТИЛИ ДЛЯ SELECT (GLASSMORPHISM)
+   Применяется ко всем select элементам на сайте для единообразия
+   =================================================================== */
+
+select {
+      /* Основные стили */
+      width: 100%;
+      padding: 15px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      font-size: 16px;
+      font-family: 'Roboto', 'Open Sans', sans-serif;
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      /* Glassmorphism эффект */
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
+      /* Цвет текста */
+      color: #fefefe;
+  }
+
+/* При наведении и фокусе */
+select:hover,
+select:focus {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.3);
+      outline: none;
+      box-shadow: 0 4px 15px rgba(232, 81, 36, 0.2);
+  }
+
+/* Стили для option элементов (выпадающий список) */
+select option {
+      background: #2a3f5f; /* Темный синий фон для опций */
+      color: #fefefe; /* Белый текст */
+      padding: 10px 15px;
+  }
+
+/* При наведении на option */
+select option:hover {
+      background: #e85124; /* Оранжевый фон при наведении */
+      color: #ffffff;
+  }
+
+/* Выбранная option */
+select option:checked {
+      background: #3a5070; /* Чуть светлее для выбранного */
+      color: #ffffff;
+      font-weight: 500;
+  }
+
