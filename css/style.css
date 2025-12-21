@@ -1601,3 +1601,22 @@ select option:checked {
       font-weight: 500;
   }
 
+/* ============================================= 
+   МОБИЛЬНАЯ ВЕРСИЯ (ФИКСЫ)
+   ============================================= */
+
+/* Увеличение шрифта логотипа на мобильных */
+@media (max-width: 768px) {
+    nav h1,
+    nav .logo,
+    nav a[href="/"] {
+        font-size: 1.3rem !important;
+    }
+    
+    /* Исправление обрезки текста в FAQ аккордеоне */
+    .faq-item.active .faq-answer {
+        max-height: none !important;
+    }
+}
+
+
