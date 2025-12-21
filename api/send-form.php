@@ -1,4 +1,4 @@
-<?php
+switch ($formType)
 /**
  * Обработчик отправки форм
  * Отправляет данные на email и в Telegram бота
@@ -150,7 +150,7 @@ switch ($formType) {
         $recipient_email = EMAIL_INFO;
         break;
     case 'airducts':
-        $recipient_email = EMAIL_SALES;
+        $recipient_email = EMAIL_INFO;
         break;
 }
 
@@ -358,4 +358,5 @@ function getFormTypeName($type) {
 
     return $types[$type] ?? 'Неизвестный тип';
 }
+
 
