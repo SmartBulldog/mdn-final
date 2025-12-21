@@ -1623,7 +1623,14 @@ select option:checked {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 20px !important;
     }}
+      
+    /* Секция услуг (кондиционирование и вентиляция) в 2 колонки */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+    }
 }
+
 
 
 
