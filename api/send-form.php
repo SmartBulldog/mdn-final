@@ -119,6 +119,10 @@ $material = trim($data['material'] ?? '');
 $thickness = trim($data['thickness'] ?? '');
 $floor = trim($data['floor'] ?? '');
 $quantity = trim($data['quantity'] ?? '');
+$company = trim($data['company'] ?? '');
+$service = trim($data['service'] ?? '');
+$area = trim($data['area'] ?? '');
+$roomType = trim($data['roomType'] ?? '');
 
 // Защита от XSS
 $name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
@@ -195,6 +199,22 @@ if ($quantity) {
     $email_message .= "Количество: $quantity\n";
 }
 
+if ($company) {
+        $email_message .= "Название компании: $company\n";
+    }
+
+if ($service) {
+        $email_message .= "Интересующая услуга: $service\n";
+    }
+
+if ($area) {
+        $email_message .= "Площадь помещения: $area м²\n";
+    }
+
+if ($roomType) {
+        $email_message .= "Тип помещения: $roomType\n";
+    }
+
 if ($message) {
     $email_message .= "\nСообщение:\n$message\n";
 }
@@ -242,6 +262,22 @@ if (TELEGRAM_BOT_TOKEN !== 'YOUR_BOT_TOKEN_HERE' && TELEGRAM_CHAT_ID !== 'YOUR_C
     if ($message) {
         $telegram_message .= "\n💬 <b>Сообщение:</b>\n$message\n";
     }
+
+        if ($company) {
+                    $telegram_message .= "🏫 <b>Компания:</b> $company\n";
+                }
+
+        if ($service) {
+                    $telegram_message .= "⚙️ <b>Услуга:</b> $service\n";
+                }
+
+        if ($area) {
+                    $telegram_message .= "📏 <b>Площадь:</b> $area м²\n";
+                }
+
+        if ($roomType) {
+                    $telegram_message .= "🏢 <b>Тип помещения:</b> $roomType\n";
+                }
 
     $telegram_message .= "\n⏰ " . date('d.m.Y H:i:s');
 
@@ -322,3 +358,4 @@ function getFormTypeName($type) {
 
     return $types[$type] ?? 'Неизвестный тип';
 }
+
