@@ -572,8 +572,34 @@ ym(105693485, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLa
 
     <script src="js/script.js"></script>
     <script src="js/faq-izgotovlenie-vozduhovodov.js"></script>
+
+        <!-- Phone mask script -->
+    <script>
+    function phoneMask(input) {
+        input.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.startsWith('8')) value = '7' + value.slice(1);
+            if (!value.startsWith('7') && value.length > 0) value = '7' + value;
+            let formattedValue = '';
+            if (value.length > 0) {
+                formattedValue = '+7';
+                if (value.length > 1) formattedValue += ' (' + value.substring(1, 4);
+                if (value.length >= 5) formattedValue += ') ' + value.substring(4, 7);
+                if (value.length >= 8) formattedValue += '-' + value.substring(7, 9);
+                if (value.length >= 10) formattedValue += '-' + value.substring(9, 11);
+            }
+            e.target.value = formattedValue;
+        });
+        input.setAttribute('placeholder', '+7 (999) 999-99-99');
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        const phoneInputs = document.querySelectorAll('input[type="tel"]');
+        phoneInputs.forEach(function(input) { phoneMask(input); });
+    });
+    </script>
 </body>
 
 </html>
+
 
 
