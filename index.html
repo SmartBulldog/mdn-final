@@ -771,9 +771,67 @@ ym(105693485, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLa
 
     <script src="js/script.js"></script>
     <script src="js/faq-data.js"></script>
+
+        <!-- Phone mask and email validation script -->
+    <script>
+    // Функция маски для телефона в формате +7 (999) 999-99-99
+    function phoneMask(input) {
+        input.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            
+            // Если первая цифра 8, заменяем на 7
+            if (value.startsWith('8')) {
+                value = '7' + value.slice(1);
+            }
+            // Если не начинается с 7, добавляем 7
+            if (!value.startsWith('7') && value.length > 0) {
+                value = '7' + value;
+            }
+            
+            let formattedValue = '';
+            
+            if (value.length > 0) {
+                formattedValue = '+7';
+                if (value.length > 1) {
+                    formattedValue += ' (' + value.substring(1, 4);
+                }
+                if (value.length >= 5) {
+                    formattedValue += ') ' + value.substring(4, 7);
+                }
+                if (value.length >= 8) {
+                    formattedValue += '-' + value.substring(7, 9);
+                }
+                if (value.length >= 10) {
+                    formattedValue += '-' + value.substring(9, 11);
+                }
+            }
+            
+            e.target.value = formattedValue;
+        });
+        
+        // Добавляем placeholder
+        input.setAttribute('placeholder', '+7 (999) 999-99-99');
+    }
+    
+    // Применяем маску к полям телефона после загрузки DOM
+    document.addEventListener('DOMContentLoaded', function() {
+        // Поля телефона в формах
+        const contactPhoneInput = document.getElementById('contactPhone');
+        const callbackPhoneInput = document.getElementById('callbackPhone');
+        
+        if (contactPhoneInput) {
+            phoneMask(contactPhoneInput);
+        }
+        
+        if (callbackPhoneInput) {
+            phoneMask(callbackPhoneInput);
+        }
+    });
+    </script>
 </body>
 
 </html>
+
 
 
 
