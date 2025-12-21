@@ -1629,7 +1629,14 @@ select option:checked {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 20px !important;
     }
+
+      /* Карточки услуг в 2 колонки на мобильных */
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+    }
 }
+
 
 
 
