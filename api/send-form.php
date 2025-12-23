@@ -1,8 +1,9 @@
-switch ($formType)
+ <?php
 /**
- * Обработчик отправки форм
+* Обработчик отправки форм
  * Отправляет данные на email и в Telegram бота
- */
+  */
+ 
 
 // Загружаем конфигурацию
 if (!file_exists(__DIR__ . '/config.php')) {
@@ -358,5 +359,6 @@ function getFormTypeName($type) {
 
     return $types[$type] ?? 'Неизвестный тип';
 }
+
 
 
